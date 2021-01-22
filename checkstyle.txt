@@ -1,0 +1,10 @@
+Starting audit...
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/Main.java:5:17: Using the '.*' form of import should be avoided - iomanager.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/Main.java:6:15: Using the '.*' form of import should be avoided - players.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/gamelogic/GameTracker.java:6:17: Using the '.*' form of import should be avoided - iomanager.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/gamelogic/GameTracker.java:7:15: Using the '.*' form of import should be avoided - players.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/dbmanager/DatabaseInputHandler.java:7:15: Using the '.*' form of import should be avoided - players.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/dbmanager/DatabaseOutputHandler.java:3:17: Using the '.*' form of import should be avoided - iomanager.*. [AvoidStarImport]
+[ERROR] /Users/xavius/Downloads/teme-project-phase1-2020 3/teme/proiect-etapa1/./src/dbmanager/DatabaseOutputHandler.java:4:15: Using the '.*' form of import should be avoided - players.*. [AvoidStarImport]
+Audit done.
+Checkstyle ends with 7 errors.

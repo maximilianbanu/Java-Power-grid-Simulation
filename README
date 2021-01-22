@@ -1,0 +1,54 @@
+BANU MAXIMILIAN 321CA
+
+	Flow explained:
+	
+		The input gets parsed through an objectMapper through the use of multiple input classes,
+	designed to properly handle the fields written in the json input files, which gets finally
+	written in an object type FullInput.
+
+		From there, the input is then parsed into an appropriate data base consisting of two
+	variable sized lists of consumers. distributors and producers, with their according fields
+	and additional ones which are set to default values, meant to be accessed/modified according
+	the turns of the game, in order for a turn to go accordingly.
+
+		Following that, game gets initialised, by setting current contract prices for all the distributors
+    through their subscriptions to specific producers, conditioned by their strategy, followed by the
+	forming of contracts for all the consumers, according to the rules of the game.
+
+	    The program uses singleton factories for all 3 main entities of the game: consumers, distributors
+	and producers. There is also the use of strategies for the making and receiving of payments by consumers
+	and distributors in case of debt or not of a consumer, as well as a strategy regarding the way a
+	distributor picks its producers.
+
+	    In addition, in order for the distributors to always suffice their energy requirement and strategy
+	properly, an observer system is used in the relationship between the distributor and the producer,
+	in order to keep track of the monthly updates and apply the changes properly.
+
+		A game turn goes as follows:
+	
+			- By using the distributorCalculator class, distributor prices get recalculated
+			  every turn and the best distributor is found , but only after the monthly
+			  updates have been taken into consideration
+
+			- All the contracts with no remaining months get terminated and, after that,
+			  all the consumers who haven't gone bankrupt and have no contract get assigned
+			  one to the best distributor
+
+			- At the end of month, represented by the endTurn method, all the payments get
+			  made through the use of a consumerCalculator type object, which takes into
+			  consideration all the debt cases and delivers the money to the appropriate 
+			  distributor, while also checking if it's a case of bankruptcy for the consumer
+			
+			- The distributors also make their payments and those whose budgets go
+			  bellow 0 are considered bankrupt, and all their current contracts are disolved,
+			  along with all the contracts of the consumers who have gone bankrupt
+
+			- Through the last part of a monthly update, the producers get their new amount
+			  of energy produced value updated, signaling their current observers (subscribed
+			  distributors, in order of distributors), that they should clear their current
+			  producer list and find new producers based on their strategy and the producers'
+			  new energy
+
+		The Distributor and Consumer classes have additional fields like currentDebt, 
+	distributorInDebt and extra fields in a contract, like distributorId, meant to make the flow
+	of the program be more easily understood and easy to adapt/change in the future.
